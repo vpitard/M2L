@@ -1,0 +1,9 @@
+{{extend 'layout.html'}}
+
+{{=BEAUTIFY(response._vars['rowsSalles'])}}
+
+
+<p >
+    <hr/>
+    {{=A(B('Retour'),_href=URL('default','index'))}}
+</p>

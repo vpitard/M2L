@@ -1,0 +1,37 @@
+{{extend 'layout.html'}}
+
+{{if 'rowsSallesDispo' in globals():}}
+
+{{if len(response._vars['rowsSallesDispo']) !=0:}}
+
+Voici les salles disponibles :
+<br/>
+
+<table>
+<tr>
+<td><h6>NOM</h6></td>
+<td><h6>CAPACITE</h6></td>
+</tr>
+{{for uneSalle in response._vars['rowsSallesDispo']:}}
+
+<tr>
+<td><i>{{=uneSalle.nom}}</i></td>
+<td><i> {{=uneSalle.capacite}}</i></td>
+<td><h6>{{=A(B('Réserver'),_href=URL('ctrl_salle','reserver',vars=dict(salle=uneSalle.id,dateDR=response._vars['dateDebDdeR'],dateFR=response._vars['dateFinDdeR'])))}}</h6></td>
+</tr>
+{{pass}}
+</table>
+<p >
+    <hr/>
+    {{=A(B('Retour'),_href=URL('ctrl_salle','index'))}}
+</p>
+
+{{else:}}
+
+Aucunes salles n'est disponibles pour les critères demandés.
+<br/>
+{{pass}}
+
+{{else:}}
+{{=BEAUTIFY(response._vars)}}
+{{pass}}

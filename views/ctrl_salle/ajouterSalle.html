@@ -1,0 +1,11 @@
+{{extend 'layout.html'}}
+
+{{if 'form' in globals():}}
+
+Ajouter une nouvelle salle
+<hr/>
+{{=form}}
+
+{{else:}}
+{{=BEAUTIFY(response._vars)}}
+{{pass}}

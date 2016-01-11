@@ -1,0 +1,39 @@
+{{extend 'layout.html'}}
+{{if 'rowsSalles' in globals():}}
+
+{{if len(response._vars['rowsSalles']) !=0 :}}
+
+<br/>
+Liste des salles </u> 
+
+<table class='table'>
+<tr>
+<td><h6>Nom</h6></td>
+<td><h6>Categorie</h6></td>
+</tr>
+{{for uneSalle in response._vars['rowsSalles']:}}
+
+<tr>
+<td><i>{{=uneSalle.salle.nom}}</i></td>
+<td><i> {{=uneSalle.categorie.nom}}</i></td>
+<td><h6>
+{{=A(B('Modifier'),_href=URL('ctrl_salle','modifierSalle',vars=dict(salle=uneSalle.salle.id)))}}
+</h6></td>
+</tr>
+{{pass}}
+</table>
+<br/>
+{{else:}}
+Aucune salle n'est actuellement disponible
+{{pass}}
+{{else:}}
+{{=BEAUTIFY(response._vars)}}
+{{pass}}
+<p>
+   <i> {{=A('Ajouter une nouvelle salle',_href=URL('ctrl_salle','ajouterSalle'))}}</i>
+</p>
+
+<p >
+    <hr/>
+    {{=A(B('Retour'),_href=URL('ctrl_salle','index'))}}
+</p>

@@ -1,0 +1,18 @@
+{{extend 'layout.html'}}
+<table class='table'>
+
+    <tr> <td>{{=A('Visualiser les salles',_class='nostyle',_href=URL('ctrl_salle','afficherLesSalles'))}}</td></tr>
+    
+    <tr> <td> {{=FORM("Visualiser les salles par catégorie :", 
+          SELECT(_name='Select_categ', *[OPTION(rowsCateg[i].nom, _value=str(rowsCateg[i].id)) for i in range(len(response._vars['rowsCateg']))]),
+          INPUT(_type='submit',_value='Voir'),_action=URL('ctrl_salle','afficherSallesCategorie'),_method='get')}}
+    </td></tr>
+    <tr> <td>{{=A('Réserver une salle',_href=URL('ctrl_salle','demanderReservationSalle'))}}</td></tr>
+    <tr> <td>  
+        {{=FORM("Visualiser les réservations :", 
+          INPUT(_class='date',_name='date',widget=SQLFORM.widgets.date.widget,requires=IS_DATETIME()),
+          INPUT(_type='submit',_value='Voir'),_action=URL('ctrl_salle','visualiserReservation'),_method='get')}}
+    </td></tr>
+
+<!--{{=BEAUTIFY(response._vars)}}-->
+</table>

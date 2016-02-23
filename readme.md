@@ -1,2 +1,3 @@
 ** Ceci est un fichier readme
-test
+testgit 
+Bonjour

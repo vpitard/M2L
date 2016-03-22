@@ -347,3 +347,27 @@ CREATE TABLE ligue(
     idDiscipline INTEGER REFERENCES discipline (id) ON DELETE CASCADE  
 );
 success!
+timestamp: 2016-03-15T15:30:38.443000
+CREATE TABLE auth_user(
+    id INT AUTO_INCREMENT NOT NULL,
+    first_name VARCHAR(128),
+    last_name VARCHAR(128),
+    email VARCHAR(512),
+    password VARCHAR(512),
+    registration_key VARCHAR(512),
+    reset_password_key VARCHAR(512),
+    registration_id VARCHAR(512),
+    PRIMARY KEY (id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+timestamp: 2016-03-15T15:30:41.552000
+CREATE TABLE auth_user(
+    id INT AUTO_INCREMENT NOT NULL,
+    first_name VARCHAR(128),
+    last_name VARCHAR(128),
+    email VARCHAR(512),
+    password VARCHAR(512),
+    registration_key VARCHAR(512),
+    reset_password_key VARCHAR(512),
+    registration_id VARCHAR(512),
+    PRIMARY KEY (id)
+) ENGINE=InnoDB CHARACTER SET utf8;

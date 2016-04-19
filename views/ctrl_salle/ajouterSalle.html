@@ -1,4 +1,4 @@
-{{extend 'layout.html'}}
+{{extend 'plugin_jqmobile/layout.html'}}
 
 {{if 'form' in globals():}}
 
@@ -9,3 +9,8 @@ Ajouter une nouvelle salle
 {{else:}}
 {{=BEAUTIFY(response._vars)}}
 {{pass}}
+
+<p>
+    <hr/>
+    {{=A(B('Retour'),_href=URL('ctrl_salle','afficherLesSalles'))}}
+</p>
